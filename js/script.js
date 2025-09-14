@@ -31,16 +31,21 @@ console.log(`Età ${userAge}, Km ${travelKm}, € ${ticketPrice}`);
 
 //Implementazione logica e calcolo sconto
 
-if (userAge < 18) {
-    const discounted20 = (ticketPrice * 20) / 100;
-    const priceDiscounted20 = ticketPrice - discounted20;
-    message = `Il prezzo scontato del biglietto per minorenni, per la tratta di km ${travelKm} è di € ${priceDiscounted20}`;
-} else if (userAge >= 65) {
-    const discounted40 = (ticketPrice * 40) / 100;
-    const priceDiscounted40 = ticketPrice - discounted40;
-    message = `Il prezzo scontato del biglietto per over65, per la tratta di km ${travelKm} è di € ${priceDiscounted40}`;
+if (isNaN(userAge) || isNaN(travelKm)) {
+    message = "Inserire un valore numerico e ricarica la pagina";
 } else {
-    message = `Il prezzo pieno del biglietto, per la tratta di km ${travelKm} è di € ${ticketPrice}`;
+
+    if (userAge < 18) {
+        const discounted20 = (ticketPrice * 20) / 100;
+        const priceDiscounted20 = ticketPrice - discounted20;
+        message = `Il prezzo scontato del biglietto per minorenni, per la tratta di km ${travelKm} è di € ${priceDiscounted20.toFixed(2)}`;
+    } else if (userAge >= 65) {
+        const discounted40 = (ticketPrice * 40) / 100;
+        const priceDiscounted40 = ticketPrice - discounted40;
+        message = `Il prezzo scontato del biglietto per over65, per la tratta di km ${travelKm} è di € ${priceDiscounted40.toFixed(2)}`;
+    } else {
+        message = `Il prezzo pieno del biglietto, per la tratta di km ${travelKm} è di € ${ticketPrice}`;
+    }
 }
 
 //Output
