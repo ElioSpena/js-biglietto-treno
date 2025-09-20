@@ -22,8 +22,8 @@
 
 //Dichiarazione variabili e raccolta dati utente
 
-const userAge = prompt("Inserisci la tua età");
-const travelKm = prompt("Quanti km vuoi percorrere?");
+const userAge = prompt("Inserisci la tua età", 18);
+const travelKm = prompt("Quanti km vuoi percorrere?", 100);
 const ticketPrice = travelKm * 0.21;
 let message = "";
 
